@@ -17,5 +17,5 @@ class Solution(object):
                 result.append(str(i))
         return result
 
-sol = Solution()
-print(sol.fizzBuzz(5))
+myS = Solution()
+print(myS.fizzBuzz(10))
