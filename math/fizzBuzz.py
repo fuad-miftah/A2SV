@@ -16,6 +16,3 @@ class Solution(object):
             else:
                 result.append(str(i))
         return result
-
-myS = Solution()
-print(myS.fizzBuzz(10))
