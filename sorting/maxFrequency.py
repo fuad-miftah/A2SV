@@ -5,35 +5,16 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        highstFreq = 1
-        inte = k
         nums.sort()
-        print(nums)
+        l,r = 0,0
+        result,total = 0,0
+    
+        while r < len(nums):
+            total+= nums[r]
+            while nums[r]* (r - l + 1) > total + k:
+                total -= nums[l]
+                l+=1
 
-        i = 0
-        while inte > 0 and highstFreq < len(nums) - i
-            
-            freq = 1
-            z = 1
-            for j in range(i+1,len(nums)):
-                i += 1
-                
-                if inte > 0:
-                    
-                    if (nums[j] - nums[j-1]) * z <= inte:
-                        freq += 1
-                        inte = inte - ((nums[j] - nums[j-1]) * z)
-                        print(inte)
-                        z +=1
-                        
-                        if freq > highstFreq:
-                            highstFreq = freq
-                    else:
-                        inte = -1
-                        break
-                else:
-                    break
-                    inte = -1
-                   
-                    
-        return highstFreq
+            result = max(result, r - l + 1)
+            r+=1
+        return result

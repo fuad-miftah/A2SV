@@ -1,16 +1,26 @@
-class Solution:
-    def nextGreaterElement(self , nums1, nums2):
-        output=[]
+class Solution(object):
+    def nextGreaterElement(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        output = []
         for i in nums1:
-            foundAt = nums2.index(i)
-            if foundAt == len(nums2) - 1:
+            indexe = nums2.index(i) 
+            if indexe == len(nums2) - 1:
                 output.append(-1)
             else:
-                if nums2[foundAt + 1] > i:
-                    output.append(nums2[foundAt + 1])
-                else:
-                    output.append(-1)
-        print(output)
+                indexe += 1
+                while indexe < len(nums2):
+                    if nums2[indexe] > i:
+                        output.append(nums2[indexe])
+                        break
+                    if indexe == len(nums2) - 1:
+                        output.append(-1)
+                    indexe += 1
+                
+        return output
 
 
 

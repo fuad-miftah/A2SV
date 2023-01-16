@@ -1,37 +1,23 @@
-class Solution:
-    def reverseParenthesis(self , s):
+class Solution(object):
+    def reverseParentheses(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        lastWord = []
         stack = []
-        top = -1
-        string = ''
+        output = ''
         for i in range(len(s)):
-  
-            if s[i] == ')':
-                current = stack[top]
-                while current != '(':
-                    string += stack.pop()
-                    top -= 1
-                    current = stack[top]
-                if current == '(' and i != len(s) - 1:
-                    stack.pop()
-                    top -= 1
-                if i == len(s) - 1:
-                    for j in range(len(stack)-1,1,-1):
-                        string += stack[j]
-                    return string
-                else:
-                    for j in string:
-                        stack.append(j)
-                        top += 1
-                    string = ''
-                    
+            if s[i] != ')':
+                lastWord.append(s[i])
             else:
-                stack.append(s[i])
-                top += 1
-        
-
-s = "(u(love)i)"
-s = "(abcd)"
-s = "(ed(et(oc))el)"
-"a(bcdefghijkl(mno)p)q"
-sol = Solution()
-print(sol.reverseParenthesis(s))
+                while lastWord[len(lastWord)-1] != '(':
+                    stack.append(lastWord.pop())
+                lastWord.pop()
+                for i in stack:
+                    lastWord.append(i)
+                stack = []
+        for i in lastWord:
+            output += i
+        return output
+            

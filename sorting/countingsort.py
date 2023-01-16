@@ -1,16 +1,38 @@
-def countingSort(arr)
-    freqArr = []
-    for i in range(100):
-        freqArr.append(0)
-    print(len(freqArr))
+#!/bin/python3
 
-    for i in range(len(arr)):
-        freqArr[arr[i]] = freqArr[arr[i]] + 1
-    print(freqArr)
+import math
+import os
+import random
+import re
+import sys
 
+#
+# Complete the 'countingSort' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
 
+def countingSort(arr):
+    # Write your code here
+    count = [0] * 100
+    for num in arr:
+        count[num] += 1
+    return count
 
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
+    n = int(input().strip())
 
-arr = [1,1,3,2,1,0,0,44,5,99]
-countingSort(arr)
+    arr = list(map(int, input().rstrip().split()))
+
+    result = countingSort(arr)
+    
+
+    fptr.write(' '.join(map(str, result)))
+    
+    fptr.write('\n')
+
+    fptr.close()
+
