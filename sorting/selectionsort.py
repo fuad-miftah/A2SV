@@ -1,19 +1,20 @@
 class Solution: 
     def select(self, arr, i):
-        min = arr[i]
+        min = i
         for j in range(i, len(arr)):
-            if min > arr[j]:
-                arr[j] , min = min , arr[j]
+            if arr[min] > arr[j]:
+                min = j
                 
         return min
 
 
     def selectionSort(self, arr, n):
-        sortedArr = []
+        
         for i in range(n):
             selected = self.select(arr, i)
-            arr[i] = selected
-
+            if i != selected:
+                arr[i], arr[selected] = arr[selected], arr[i]
+        print(arr)
 
 arr = [4 , 1, 3, 9, 7]
 sol = Solution()

@@ -15,14 +15,14 @@ class Solution(object):
                 if stri[i] + stri[j] < stri[j] + stri[i]:
                     stri[i],stri[j] = stri[j], stri[i]
 
-        allTrue = False
+        allZero = False
         for i in stri:
             if i == "0":
-                allTrue = True
+                allZero = True
             else:
-                allTrue = False
+                allZero = False
                 break
-        if allTrue == False:
+        if allZero == False:
             for i in stri:
                 largest += i
         else:
