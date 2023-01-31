@@ -21,6 +21,6 @@ class Solution:
         return ans
 
 
-nums = [8,2,4,7]
+nums = [8,2,4,7] 
 sol = Solution()
 sol.longestSubarray(nums,4)

@@ -14,7 +14,7 @@ class Solution:
             
 
 
-tempratures = [73,74,75,71,69,72,76,73]
+tempratures = [73,74,75,71,69,72,76,73] 
 #tempratures = [30,40,50,60]
 #tempratures = [30,90,60]
 sol = Solution()

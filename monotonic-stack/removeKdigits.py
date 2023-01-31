@@ -1,7 +1,6 @@
 class Solution:
     def removeKdigits(self, num: str, k: int) -> str:
-        size = len(num)
-        if size == k: return '0'
+        if len(num) == k: return '0'
         stack = []
         for n in num:
             while stack and k and stack[-1] > int(n):
@@ -17,6 +16,6 @@ class Solution:
 
 
 
-num = "1432219"
+num = "1432219" 
 sol = Solution()
-print(sol.maxOperations(num,3))
+print(sol.removeKdigits(num,3))

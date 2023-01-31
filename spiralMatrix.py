@@ -9,7 +9,7 @@ class Solution(object):
             for i in range(t,b):
                 res.append(matrix[i][r-1])
             r-=1
-            if r == l+1 or b == t: break
+            if r == l or b == t: break
             for i in range(r - 1,l-1,-1):
                 res.append(matrix[b-1][i])
             b-=1
