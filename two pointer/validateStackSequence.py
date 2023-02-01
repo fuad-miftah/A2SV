@@ -6,8 +6,8 @@ class Solution(object):
         :rtype: bool
         """
         stack = []
-        N = len(popped)
-        j = 0
+        j,N = 0,len(popped)
+    
         for i in pushed:
             stack.append(i)
             while stack and j < N and stack[-1] == popped[j]:

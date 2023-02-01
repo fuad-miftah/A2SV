@@ -1,9 +1,5 @@
-class Solution(object):
-    def evalRPN(self, tokens):
-        """
-        :type tokens: List[str]
-        :rtype: int
-        """
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
         stack = []
         result = 0
         for i in tokens: 
@@ -20,10 +16,7 @@ class Solution(object):
                     result = op1 * op2
                     stack.append(result)
                 else:
-                    if op1 * op2 > 0:
-                        result = int(op1 / op2)
-                    else:
-                        result = (op1 +(-op1 % op2)) // op2
+                    result = math.trunc(op1/op2)
                     stack.append(result)
             else:
                 stack.append(i)
