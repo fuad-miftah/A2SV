@@ -1,12 +1,15 @@
 class Solution:
-    def bfs(self,node,visited,rooms):
-        visited.add(node)
-        for neighbour in rooms[node]:
-            if neighbour not in visited:
-                self.bfs(neighbour,visited,rooms)
     def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
         visited = set()
-        self.bfs(0,visited,rooms)
+        queue = deque([0])
+        visited.add(0)
+        while queue:
+            node = queue.popleft()
+            for neigbour in rooms[node]:
+                if neigbour not in visited:
+                    queue.append(neigbour)
+                    visited.add(neigbour)
+
         if len(visited) == len(rooms):
             return True
         return False
